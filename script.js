@@ -1,5 +1,5 @@
-const createTv = document.getElementById('createTvBrand')
-console.log(createTv)
+const createTvButton = document.getElementById('createTvBrand')
+
 
 
 
@@ -86,4 +86,4 @@ class MyTv {
 
 }
 
-createTv.addEventListener('click', MyTv)
+createTvButton.addEventListener('click', MyTv)
