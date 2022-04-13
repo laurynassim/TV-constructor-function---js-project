@@ -1,5 +1,7 @@
-const createTvButton = document.getElementById('createTvBrand')
-
+const createTvBrand = document.getElementById('createTvBrand')
+const tvInputName = document.getElementById('inputText')
+//sita zemiau sukuria funkcija, htmle dar neturiu
+// const displayTvBrand = document.getElementById('displayTvBrand')
 
 
 
@@ -11,12 +13,16 @@ class MyTv {
         this.createTv()
     }
 
-        createTv(){
+    createTv(){
+            let body = document.getElementsByTagName("Body")[0]
+
             let outerBox = document.createElement('div')
                 outerBox.setAttribute('id', 'outerBox' )
+                body.appendChild(outerBox)
 
             let displayTvBrand = document.createElement('div')
                 displayTvBrand.setAttribute('id', 'displayTvBrand')
+                displayTvBrand.innerHTML = tvInputName.textContent 
                 outerBox.appendChild(displayTvBrand)
 
             let screen = document.createElement('div')
@@ -67,9 +73,10 @@ class MyTv {
                 inputVolumeUp.setAttribute('value', 'V+')
                 volume.appendChild(inputVolumeUp)
             
-            let reset = document.createComment('div')
-                reset.setAttribute('class', 'reset')
+            let reset = document.createElement('div')
+                reset.setAttribute('div', 'reset')
                 controls.appendChild(reset)
+                
                 
             let wrapper = document.createElement('div')
                 wrapper.setAttribute('class', 'wrapper')
@@ -81,9 +88,14 @@ class MyTv {
                 inputResetButton.setAttribute('value', 'Magic reset')
                 wrapper.appendChild(inputResetButton)
 
-        }
+    }
 
 
 }
 
-createTvButton.addEventListener('click', MyTv)
+
+createTvBrand.addEventListener('click', function() {
+ new MyTv(tvInputName.value)
+
+ tvInputName.value = ''
+})
